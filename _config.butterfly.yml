@@ -116,11 +116,11 @@ tag_img: https://baijiahao.baidu.com/bjh/picproxy?param=VTEfbwpKOWCmqKgujB9j5XJV
 # The banner image of tag page
 # format:
 #  - tag name: xxxxx
-tag_per_img:
+tag_per_img: https://baijiahao.baidu.com/bjh/picproxy?param=VTEfbwpKOWCmqKgujB9j5XJVCKkZNaPwv%2BFpiKFJ2f%2F2y0QyEKZUroZnhy%2B4FFukFmVXHwch2mc1lVU1BUp7Zt05qQM4GV079SaK66k6v4NyUz%2F12zx5tf4wxZ%2BtKFqz
 
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img:
+category_img: https://baijiahao.baidu.com/bjh/picproxy?param=VTEfbwpKOWCmqKgujB9j5XJVCKkZNaPwv%2BFpiKFJ2f%2F2y0QyEKZUroZnhy%2B4FFukFmVXHwch2mc1lVU1BUp7Zt05qQM4GV079SaK66k6v4NyUz%2F12zx5tf4wxZ%2BtKFqz
 
 # The banner image of category page
 # format:
