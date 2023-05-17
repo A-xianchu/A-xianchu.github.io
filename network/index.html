@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark">
+	<head>
+		<meta charset="utf-8">
+		<title>操作命令及参数故障速查本-Intertnet技术安全协会</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%221em%22%20width%3D%221em%22%3E%20%3Cpath%20d%3D%22m21.66%2010.44-.98%204.18c-.84%203.61-2.5%205.07-5.62%204.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2%201.17-2.42%203.16-3.07%206.5-2.28l1.67.39c4.19.98%205.47%203.05%204.49%207.23Z%22%20fill%3D%22%23c9d1d9%22%2F%3E%20%3Cpath%20d%3D%22M15.06%2019.39c-.62.42-1.4.77-2.35%201.08l-1.58.52c-3.97%201.28-6.06.21-7.35-3.76L2.5%2013.28c-1.28-3.97-.22-6.07%203.75-7.35l1.58-.52c.41-.13.8-.24%201.17-.31-.3.61-.54%201.35-.74%202.2l-.98%204.19c-.98%204.18.31%206.24%204.48%207.23l1.68.4c.58.14%201.12.23%201.62.27Zm2.43-8.88c-.06%200-.12-.01-.19-.02l-4.85-1.23a.75.75%200%200%201%20.37-1.45l4.85%201.23a.748.748%200%200%201-.18%201.47Z%22%20fill%3D%22%23228e6c%22%20%2F%3E%20%3Cpath%20d%3D%22M14.56%2013.89c-.06%200-.12-.01-.19-.02l-2.91-.74a.75.75%200%200%201%20.37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56Z%22%20fill%3D%22%23228e6c%22%20%2F%3E%20%3C%2Fsvg%3E" type="image/svg+xml">
+		<link rel="stylesheet" href="style/style.css">
+		<link rel="stylesheet" href="style/katex.css">
+	</head>
+	<body>
+		<nav class="header-nav">
+			<div class="max-container"><a href="#" class="logo"><svg viewBox="0 0 24 24" fill="none"
+						xmlns="http://www.w3.org/2000/svg" height="1em" width="1em">
+						<path
+							d="m21.66 10.44-.98 4.18c-.84 3.61-2.5 5.07-5.62 4.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2 1.17-2.42 3.16-3.07 6.5-2.28l1.67.39c4.19.98 5.47 3.05 4.49 7.23Z"
+							fill="#c9d1d9"></path>
+						<path
+							d="M15.06 19.39c-.62.42-1.4.77-2.35 1.08l-1.58.52c-3.97 1.28-6.06.21-7.35-3.76L2.5 13.28c-1.28-3.97-.22-6.07 3.75-7.35l1.58-.52c.41-.13.8-.24 1.17-.31-.3.61-.54 1.35-.74 2.2l-.98 4.19c-.98 4.18.31 6.24 4.48 7.23l1.68.4c.58.14 1.12.23 1.62.27Zm2.43-8.88c-.06 0-.12-.01-.19-.02l-4.85-1.23a.75.75 0 0 1 .37-1.45l4.85 1.23a.748.748 0 0 1-.18 1.47Z"
+							fill="#228e6c"></path>
+						<path
+							d="M14.56 13.89c-.06 0-.12-.01-.19-.02l-2.91-.74a.75.75 0 0 1 .37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56Z"
+							fill="#228e6c"></path>
+					</svg>
+					<span class="title">Intertnet技术安全协会</span></a>
+				<div class="menu"><button id="darkMode" type="button"><svg
+							xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="light"
+							height="1em" width="1em">
+							<path
+								d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z">
+							</path>
+						</svg>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="dark"
+							height="1em" width="1em">
+							<path
+								d="M12 11.807A9.002 9.002 0 0 1 10.049 2a9.942 9.942 0 0 0-5.12 2.735c-3.905 3.905-3.905 10.237 0 14.142 3.906 3.906 10.237 3.905 14.143 0a9.946 9.946 0 0 0 2.735-5.119A9.003 9.003 0 0 1 12 11.807z">
+							</path>
+						</svg>
+					</button>
+					<script src="js/dark.js?v=1.3.4"></script>
+				</div>
+			</div>
+		</nav>
+		<div class="wrap h1body-exist max-container">
+			<header class="wrap-header h1wrap">
+				<h1 id="操作命令及参数故障速查本"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+						fill="currentColor" height="1em" width="1em">
+						<path
+							d="M107.946667 838.4l57.173333 23.893333v-385.28l-103.68 250.026667c-17.493333 43.52 3.413333 93.44 46.506667 111.36z m832-157.866667L728.32 169.813333a85.888 85.888 0 0 0-77.226667-52.48c-11.093333 0-22.613333 1.706667-33.706666 6.4L302.933333 253.866667a85.290667 85.290667 0 0 0-46.08 110.933333l211.626667 510.72a85.248 85.248 0 0 0 110.933333 46.08l314.026667-130.133333a85.077333 85.077333 0 0 0 46.506667-110.933334zM336.213333 373.333333c-23.466667 0-42.666667-19.2-42.666666-42.666666s19.2-42.666667 42.666666-42.666667 42.666667 19.2 42.666667 42.666667-19.2 42.666667-42.666667 42.666666z m-85.333333 469.333334c0 46.933333 38.4 85.333333 85.333333 85.333333h61.866667l-147.2-355.84v270.506667z">
+						</path>
+					</svg><a aria-hidden="true" tabindex="-1" href="#操作命令及参数故障速查本"><span
+							class="icon icon-link"></span></a>操作命令及参数故障速查本</h1>
+				<div class="wrap-body">
+					<p>速查本当前包含内容:AP参数、网内信息、windows常用命令及操作流程</p>
+				</div>
+			</header>
+			<div class="menu-tocs">
+				<div class="menu-btn"><svg aria-hidden="true" fill="currentColor" height="1em" width="1em"
+						viewBox="0 0 16 16" version="1.1" data-view-component="true">
+						<path fill-rule="evenodd"
+							d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z">
+						</path>
+					</svg></div>
+				<div class="menu-modal"><a aria-hidden="true" class="leve2 tocs-link" data-num="2"
+						href="#ap参数">AP参数</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#锐捷-ap-120w">锐捷-AP-120W</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4"
+						href="#参数">参数</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4"
+						href="#指示灯信息">指示灯信息</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#锐捷-map552智分">锐捷-MAP552（智分+）</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4"
+						href="#参数-1">参数</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4"
+						href="#指示灯信息-1">指示灯信息</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#锐捷-ap320-i公共区">锐捷-AP320-I（公共区）</a><a aria-hidden="true" class="leve4 tocs-link"
+						data-num="4" href="#参数-2">参数</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4"
+						href="#指示灯信息-2">指示灯信息</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#锐捷-ap520公共区">锐捷-AP520（公共区）</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4"
+						href="#参数-3">参数</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4"
+						href="#指示灯信息-3">指示灯信息</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2"
+						href="#网内信息">网内信息</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#ip">IP</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4"
+						href="#内网取值范围">内网取值范围</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4"
+						href="#常用系统ip">常用系统IP</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#特殊ip">特殊ip</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2"
+						href="#windows常用系统命令及操作流程">Windows常用系统命令及操作流程</a><a aria-hidden="true" class="leve3 tocs-link"
+						data-num="3" href="#常用命令速查">常用命令速查</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#net-命令一">net 命令(一)</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#net-命令二">net 命令(二)</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#ping-命令">ping 命令</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#tracert-命令">tracert 命令</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#netstat-命令">netstat 命令</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3"
+						href="#更改本机ip地址">更改本机IP地址</a></div>
+			</div>
+			<div class="h1wrap-body">
+				<div class="wrap h2body-exist">
+					<div class="wrap-header h2wrap">
+						<h2 id="ap参数"><a aria-hidden="true" tabindex="-1" href="#ap参数"><span
+									class="icon icon-link"></span></a>AP参数</h2>
+						<div class="wrap-body">
+						</div>
+					</div>
+					<div class="h2wrap-body">
+						<div class="wrap h3body-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="锐捷-ap-120w"><a aria-hidden="true" tabindex="-1" href="#锐捷-ap-120w"><span
+											class="icon icon-link"></span></a>锐捷-AP-120W</h3>
+								<div class="wrap-body">
+									<h4 id="参数"><a aria-hidden="true" tabindex="-1" href="#参数"><span
+												class="icon icon-link"></span></a>参数</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>标记</th>
+												<th>详细</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>速率</td>
+												<td>100Mbps</td>
+											</tr>
+											<tr>
+												<td>信号</td>
+												<td>2.4Ghz/5.8Ghz</td>
+											</tr>
+											<tr>
+												<td>Mac地址</td>
+												<td>内部右下角第二行</td>
+											</tr>
+										</tbody>
+									</table>
+									<h4 id="指示灯信息"><a aria-hidden="true" tabindex="-1" href="#指示灯信息"><span
+												class="icon icon-link"></span></a>指示灯信息</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>指示灯</th>
+												<th>消息</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>SYS绿灯常亮</td>
+												<td>系统正常</td>
+											</tr>
+											<tr>
+												<td>SYS绿灯闪烁</td>
+												<td>AP初始化/故障</td>
+											</tr>
+											<tr>
+												<td>Uplink绿灯闪烁</td>
+												<td>正在更新配置</td>
+											</tr>
+											<tr>
+												<td>Lan绿灯常亮</td>
+												<td>链路成功，无数据</td>
+											</tr>
+											<tr>
+												<td>Lan绿灯闪烁</td>
+												<td>链路成功，有数据</td>
+											</tr>
+											<tr>
+												<td>Wlan灯灭</td>
+												<td>Wifi信号为放出</td>
+											</tr>
+											<tr>
+												<td>FAT/FIT 绿灯</td>
+												<td>瘦模式</td>
+											</tr>
+											<tr>
+												<td>FAT/FIT 橙色</td>
+												<td>胖模式</td>
+											</tr>
+											<tr>
+												<td>Reset 5秒</td>
+												<td>切换模式</td>
+											</tr>
+											<tr>
+												<td>Reset 15秒</td>
+												<td>重置AP</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="锐捷-map552智分"><a aria-hidden="true" tabindex="-1" href="#锐捷-map552智分"><span
+											class="icon icon-link"></span></a>锐捷-MAP552（智分+）</h3>
+								<div class="wrap-body">
+									<h4 id="参数-1"><a aria-hidden="true" tabindex="-1" href="#参数-1"><span
+												class="icon icon-link"></span></a>参数</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>标记</th>
+												<th>详细</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>主AP</td>
+												<td>1000Mbps</td>
+											</tr>
+											<tr>
+												<td>速率</td>
+												<td>100/1000Mbps</td>
+											</tr>
+											<tr>
+												<td>信号</td>
+												<td>2.4Ghz+5.8Ghz</td>
+											</tr>
+											<tr>
+												<td>Mac地址</td>
+												<td>AP背面</td>
+											</tr>
+										</tbody>
+									</table>
+									<h4 id="指示灯信息-1"><a aria-hidden="true" tabindex="-1" href="#指示灯信息-1"><span
+												class="icon icon-link"></span></a>指示灯信息</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>指示灯</th>
+												<th>消息</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>黄色快闪</td>
+												<td>初始化/故障</td>
+											</tr>
+											<tr>
+												<td>绿色常亮</td>
+												<td>无法接入主AP</td>
+											</tr>
+											<tr>
+												<td>绿色闪烁</td>
+												<td>正常工作</td>
+											</tr>
+											<tr>
+												<td>红色快闪</td>
+												<td>AP故障</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="锐捷-ap320-i公共区"><a aria-hidden="true" tabindex="-1" href="#锐捷-ap320-i公共区"><span
+											class="icon icon-link"></span></a>锐捷-AP320-I（公共区）</h3>
+								<div class="wrap-body">
+									<h4 id="参数-2"><a aria-hidden="true" tabindex="-1" href="#参数-2"><span
+												class="icon icon-link"></span></a>参数</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>标记</th>
+												<th>详细</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>速率</td>
+												<td>1000Mbps</td>
+											</tr>
+											<tr>
+												<td>信号</td>
+												<td>2.4Ghz/5.8Ghz</td>
+											</tr>
+											<tr>
+												<td>console</td>
+												<td>支持</td>
+											</tr>
+										</tbody>
+									</table>
+									<h4 id="指示灯信息-2"><a aria-hidden="true" tabindex="-1" href="#指示灯信息-2"><span
+												class="icon icon-link"></span></a>指示灯信息</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>指示灯</th>
+												<th>消息</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>绿色闪烁/常亮</td>
+												<td>开机</td>
+											</tr>
+											<tr>
+												<td>红色闪烁</td>
+												<td>上联无法连接</td>
+											</tr>
+											<tr>
+												<td>橙色常亮/闪烁</td>
+												<td>获取配置</td>
+											</tr>
+											<tr>
+												<td>蓝色</td>
+												<td>正常工作</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="锐捷-ap520公共区"><a aria-hidden="true" tabindex="-1" href="#锐捷-ap520公共区"><span
+											class="icon icon-link"></span></a>锐捷-AP520（公共区）</h3>
+								<div class="wrap-body">
+									<h4 id="参数-3"><a aria-hidden="true" tabindex="-1" href="#参数-3"><span
+												class="icon icon-link"></span></a>参数</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>标记</th>
+												<th>详细</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>速率</td>
+												<td>1000Mbps</td>
+											</tr>
+											<tr>
+												<td>信号</td>
+												<td>2.4Ghz/5.8Ghz</td>
+											</tr>
+											<tr>
+												<td>console</td>
+												<td>支持</td>
+											</tr>
+										</tbody>
+									</table>
+									<h4 id="指示灯信息-3"><a aria-hidden="true" tabindex="-1" href="#指示灯信息-3"><span
+												class="icon icon-link"></span></a>指示灯信息</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>指示灯</th>
+												<th>消息</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>绿色闪烁/常亮</td>
+												<td>开机</td>
+											</tr>
+											<tr>
+												<td>红色闪烁</td>
+												<td>上联无法连接</td>
+											</tr>
+											<tr>
+												<td>橙色常亮/闪烁</td>
+												<td>获取配置</td>
+											</tr>
+											<tr>
+												<td>蓝色</td>
+												<td>正常工作</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="wrap h2body-exist">
+					<div class="wrap-header h2wrap">
+						<h2 id="网内信息"><a aria-hidden="true" tabindex="-1" href="#网内信息"><span
+									class="icon icon-link"></span></a>网内信息</h2>
+						<div class="wrap-body">
+						</div>
+					</div>
+					<div class="h2wrap-body">
+						<div class="wrap h3body-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="ip"><a aria-hidden="true" tabindex="-1" href="#ip"><span
+											class="icon icon-link"></span></a>IP</h3>
+								<div class="wrap-body">
+									<h4 id="内网取值范围"><a aria-hidden="true" tabindex="-1" href="#内网取值范围"><span
+												class="icon icon-link"></span></a>内网取值范围</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>标记</th>
+												<th>详细</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>内网范围1</td>
+												<td>10.0.0.1-10.255.255.24</td>
+											</tr>
+											<tr>
+												<td>内网范围2</td>
+												<td>172.16.0.1-172.16.255.254</td>
+											</tr>
+										</tbody>
+									</table>
+									<h4 id="常用系统ip"><a aria-hidden="true" tabindex="-1" href="#常用系统ip"><span
+												class="icon icon-link"></span></a>常用系统IP</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>工作</th>
+												<th>ip</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>宿舍区AC</td>
+												<td>10.255.255.2</td>
+											</tr>
+											<tr>
+												<td>公共区AC</td>
+												<td>10.255.255.3</td>
+											</tr>
+											<tr>
+												<td>校园网有线客户端</td>
+												<td>10.6.6.3</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-not-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="特殊ip"><a aria-hidden="true" tabindex="-1" href="#特殊ip"><span
+											class="icon icon-link"></span></a>特殊ip</h3>
+								<div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>标记</th>
+												<th>ip</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>本机</td>
+												<td>127.0.0.1/Localhost</td>
+											</tr>
+											<tr>
+												<td>广播地址</td>
+												<td>255.255.255.255</td>
+											</tr>
+											<tr>
+												<td>任何网络</td>
+												<td>0.0.0.0</td>
+											</tr>
+											<tr>
+												<td>DHCP抽风</td>
+												<td>169.254.0.0-169.254.255.254</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="wrap h2body-exist">
+					<div class="wrap-header h2wrap">
+						<h2 id="windows常用系统命令及操作流程"><a aria-hidden="true" tabindex="-1" href="#windows常用系统命令及操作流程"><span
+									class="icon icon-link"></span></a>Windows常用系统命令及操作流程</h2>
+						<div class="wrap-body">
+						</div>
+					</div>
+					<div class="h2wrap-body">
+						<div class="wrap h3body-not-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="常用命令速查"><a aria-hidden="true" tabindex="-1" href="#常用命令速查"><span
+											class="icon icon-link"></span></a>常用命令速查</h3>
+								<div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th>参数</th>
+												<th>action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>ipconfig</td>
+												<td>查看网络信息</td>
+											</tr>
+											<tr>
+												<td>ping</td>
+												<td>检查连通性</td>
+											</tr>
+											<tr>
+												<td>tracert</td>
+												<td>网络追踪</td>
+											</tr>
+											<tr>
+												<td>netstat</td>
+												<td>端口查看</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-not-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="net-命令一"><a aria-hidden="true" tabindex="-1" href="#net-命令一"><span
+											class="icon icon-link"></span></a>net 命令(一)</h3>
+								<div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th align="left">参数</th>
+												<th align="left">action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td align="left"><code>net use ipipc$ " " /user:" "</code></td>
+												<td align="left">建立IPC空链接</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net use ipipc$ " " /user:" "</code></td>
+												<td align="left">建立IPC空链接</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net use ipipc$ “密码” /user:"</code></td>
+												<td align="left">用户名" 建立IPC非空链接</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net use h: ipc$ “密码” /user:“用户名”</code></td>
+												<td align="left">直接登陆后映射对方C：到本地为H:</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net use h: ipc$</code></td>
+												<td align="left">登陆后映射对方C：到本地为H:</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net use ipipc$ /del</code></td>
+												<td align="left">删除IPC链接</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net use h: /del</code></td>
+												<td align="left">删除映射对方到本地的为H:的映射</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net user 用户名　密码　/add</code></td>
+												<td align="left">建立用户</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net user guest /active:yes</code></td>
+												<td align="left">激活guest用户</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net user</code></td>
+												<td align="left">查看有哪些用户</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net user 帐户名</code></td>
+												<td align="left">查看帐户的属性</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net localgroup administrators 用户名 /add</code>
+												</td>
+												<td align="left">把“用户”添加到管理员中使其具有管理员权限</td>
+											</tr>
+											<tr>
+												<td align="left"><!--rehype:className=style-list--></td>
+												<td align="left"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-not-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="net-命令二"><a aria-hidden="true" tabindex="-1" href="#net-命令二"><span
+											class="icon icon-link"></span></a>net 命令(二)</h3>
+								<div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th align="left">参数</th>
+												<th align="left">action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td align="left"><code>net start</code></td>
+												<td align="left">查看开启了哪些服务</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net start 服务名</code></td>
+												<td align="left">开启服务；(如:net start telnet， net start schedule)</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net stop 服务名</code></td>
+												<td align="left">停止某服务</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net time 目标ip</code></td>
+												<td align="left">查看对方时间</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net view</code></td>
+												<td align="left">查看本地局域网内开启了哪些共享</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net view ip</code></td>
+												<td align="left">查看对方局域网内开启了哪些共享</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net config</code></td>
+												<td align="left">显示系统网络设置</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net pause 服务名</code></td>
+												<td align="left">暂停某服务</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net send ip “文本信息”</code></td>
+												<td align="left">向对方发信息</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net ver</code></td>
+												<td align="left">局域网内正在使用的网络连接类型和信息</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net share</code></td>
+												<td align="left">查看本地开启的共享</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net share ipc$ /del</code></td>
+												<td align="left">删除ipc$共享</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net share c$ /del</code></td>
+												<td align="left">删除C：共享</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net user guest 12345</code></td>
+												<td align="left">用guest用户登陆后用将密码改为12345</td>
+											</tr>
+											<tr>
+												<td align="left"><code>net password 密码</code></td>
+												<td align="left">更改系统登陆密码</td>
+											</tr>
+											<tr>
+												<td align="left"><!--rehype:className=style-list--></td>
+												<td align="left"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-not-exist row-span-2 col-span-2">
+							<div class="wrap-header h3wrap">
+								<h3 id="ping-命令"><a aria-hidden="true" tabindex="-1" href="#ping-命令"><span
+											class="icon icon-link"></span></a>ping 命令</h3>
+								<div class="wrap-body">
+									<!--rehype:wrap-class=row-span-2 col-span-2-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th align="left">参数</th>
+												<th align="left">action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td align="left"><code>-d</code></td>
+												<td align="left">使用 Socket 的 SO_DEBUG 功能</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-c&#x3C;完成次数></code></td>
+												<td align="left">设置完成要求回应的次数</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-f</code></td>
+												<td align="left">极限检测</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-i&#x3C;间隔秒数></code></td>
+												<td align="left">指定收发信息的间隔时间</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-I&#x3C;网络界面></code></td>
+												<td align="left">使用指定的网络界面送出数据包</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-l&#x3C;前置载入></code></td>
+												<td align="left">设置在送出要求信息之前，先行发出的数据包</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-n</code></td>
+												<td align="left">只输出数值</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-p&#x3C;范本样式></code></td>
+												<td align="left">设置填满数据包的范本样式</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-q</code></td>
+												<td align="left">不显示指令执行过程，开头和结尾的相关信息除外</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-r</code></td>
+												<td align="left">忽略普通的Routing Table，直接将数据包送到远端主机上</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-R</code></td>
+												<td align="left">记录路由过程</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-s&#x3C;数据包大小></code></td>
+												<td align="left">设置数据包的大小</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-t&#x3C;存活数值></code></td>
+												<td align="left">设置存活数值TTL的大小</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-v</code></td>
+												<td align="left">详细显示指令的执行过程</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-not-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="tracert-命令"><a aria-hidden="true" tabindex="-1" href="#tracert-命令"><span
+											class="icon icon-link"></span></a>tracert 命令</h3>
+								<div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th align="left">参数</th>
+												<th align="left">action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td align="left"><code>-d</code></td>
+												<td align="left">不将地址解析成主机名</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-h maximum_hops</code></td>
+												<td align="left">搜索目标的最大跃点数，默认30</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-w timeout</code></td>
+												<td align="left">等待每个回复的超时时间(以毫秒为单位)</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-R</code></td>
+												<td align="left">跟踪往返行程路径(仅适用于 IPv6)</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-S srcaddr</code></td>
+												<td align="left">要使用的源地址(仅适用于 IPv6)</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-4</code></td>
+												<td align="left">强制使用 IPv4</td>
+											</tr>
+											<tr>
+												<td align="left"><code>-6</code></td>
+												<td align="left">强制使用 IPv6</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-not-exist">
+							<div class="wrap-header h3wrap">
+								<h3 id="netstat-命令"><a aria-hidden="true" tabindex="-1" href="#netstat-命令"><span
+											class="icon icon-link"></span></a>netstat 命令</h3>
+								<div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									<table>
+										<thead>
+											<tr>
+												<th align="left">参数</th>
+												<th align="left">action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td align="left"><code>netstat -a</code></td>
+												<td align="left">查看开启了哪些端口,常用netstat -an</td>
+											</tr>
+											<tr>
+												<td align="left"><code>netstat -n</code></td>
+												<td align="left">查看端口的网络连接情况，常用netstat -an</td>
+											</tr>
+											<tr>
+												<td align="left"><code>netstat -v</code></td>
+												<td align="left">查看正在进行的工作</td>
+											</tr>
+											<tr>
+												<td align="left"><code>netstat -p 协议名</code></td>
+												<td align="left">例：netstat -p tcq/ip 查看某协议使用情况</td>
+											</tr>
+											<tr>
+												<td align="left"><code>netstat -s</code></td>
+												<td align="left">查看正在使用的所有协议使用情况</td>
+											</tr>
+											<tr>
+												<td align="left"><code>nbtstat -A ip</code></td>
+												<td align="left">对方136到139其中一个端口开了的话，就可查看对方最近登陆的用户名</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="wrap h3body-not-exist row-span-2 col-span-2">
+							<div class="wrap-header h3wrap">
+								<h3 id="更改本机ip地址"><a aria-hidden="true" tabindex="-1" href="#更改本机ip地址"><span
+											class="icon icon-link"></span></a>更改本机IP地址</h3>
+								<div class="wrap-body">
+									<!--rehype:wrap-class=row-span-2 col-span-2-->
+									<p><kbd>控制面板</kbd>→<kbd>网络和Internet设置</kbd>→<kbd>网络和共享中心</kbd>→<kbd>查看活动网络（连接）</kbd>→<kbd>详细信息</kbd>→<kbd>IPv4地址</kbd>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footer-wrap">
+			<footer class="max-container">By:赵文琪 Build:Quick Reference<br>© 2023 Intertnet技术安全协会</footer>
+		</footer>
+		<script src="..\/data.js?v=1.3.4" defer></script>
+		<script src="..\/js/fuse.min.js?v=1.3.4" defer></script>
+		<script src="..\/js/main.js?v=1.3.4" defer></script>
+		<div id="mysearch">
+			<div class="mysearch-box">
+				<div class="mysearch-input">
+					<div><svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" viewBox="0 0 18 18">
+							<path fill="currentColor"
+								d="M17.71,16.29 L14.31,12.9 C15.4069846,11.5024547 16.0022094,9.77665502 16,8 C16,3.581722 12.418278,0 8,0 C3.581722,0 0,3.581722 0,8 C0,12.418278 3.581722,16 8,16 C9.77665502,16.0022094 11.5024547,15.4069846 12.9,14.31 L16.29,17.71 C16.4777666,17.8993127 16.7333625,18.0057983 17,18.0057983 C17.2666375,18.0057983 17.5222334,17.8993127 17.71,17.71 C17.8993127,17.5222334 18.0057983,17.2666375 18.0057983,17 C18.0057983,16.7333625 17.8993127,16.4777666 17.71,16.29 Z M2,8 C2,4.6862915 4.6862915,2 8,2 C11.3137085,2 14,4.6862915 14,8 C14,11.3137085 11.3137085,14 8,14 C4.6862915,14 2,11.3137085 2,8 Z">
+							</path>
+						</svg><input id="mysearch-input" type="search" placeholder="搜索" autocomplete="off">
+						<div class="mysearch-clear"></div>
+					</div><button id="mysearch-close" type="button">搜索</button>
+				</div>
+				<div class="mysearch-result">
+					<div id="mysearch-menu"></div>
+					<div id="mysearch-content"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
